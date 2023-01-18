@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/filterwizard.png" alt="FilterWizard Logo">
+  <img src="./assets/filterwizard.png" alt="FilterWizard Logo">
 </p>
 <h1 align="center">
   <b>FilterWizard Bot</b>
