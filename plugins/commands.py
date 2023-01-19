@@ -113,7 +113,7 @@ async def start(client, message):
             parse_mode=enums.ParseMode.MARKDOWN
             )
         return
-    if len(message.command) == 2 & message.command[1] in ["subscribe", "error", "okay", "help"]:
+    if len(message.command) == 2 and message.command[1] in ["subscribe", "error", "okay", "help"]:
         buttons = [[
             InlineKeyboardButton('🔍 Ara', switch_inline_query_current_chat=''),
             InlineKeyboardButton('🤖 Duyurular', url='https://t.me/birmuhendisinkanallari')
