@@ -217,6 +217,6 @@ async def imdb_callback(bot: Client, quer_y: CallbackQuery):
 @Client.on_callback_query(filters.private)
 async def sendreq(cli: Client, cbquery: CallbackQuery):
     if cbquery.data == "sendreq":
-        await cli.forward_messages(-1001716483713, cbquery.message.chat.id, cbquery.message.id)
-        await cli.send_message(cbquery.message.chat.id, "✅ İsteğiniz yöneticiye gönderilmiştir. En kısa sürede eklenecektir. İyi günler...")
+        await cli.forward_messages(-1001716483713, cbquery.message.from_user.id, cbquery.message.id)
+        await cli.send_message(cbquery.message.from_user.id, "✅ İsteğiniz yöneticiye gönderilmiştir. En kısa sürede eklenecektir. İyi günler...")
         await cbquery.message.delete()
