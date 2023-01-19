@@ -199,7 +199,7 @@ async def imdb_callback(bot: Client, quer_y: CallbackQuery):
         caption = "Aradığınızı bulamadık."
     if imdb.get('poster'):
         try:
-            result = await quer_y.message.reply_photo(photo=imdb['poster'], caption=caption, reply_markup=InlineKeyboardMarkup(btn))
+            await quer_y.message.reply_photo(photo=imdb['poster'], caption=caption, reply_markup=InlineKeyboardMarkup(btn))
             # await bot.pin_chat_message(result.chat.id, result.id, disable_notification=True, both_sides = True)
             # await bot.send_message(result.chat.id, "İsteğiniz Gönderilmiştir")
         except (MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty):
@@ -215,8 +215,8 @@ async def imdb_callback(bot: Client, quer_y: CallbackQuery):
     await quer_y.answer()
         
 @Client.on_callback_query(filters.private)
-async def sendreq(req: Client, que_ry: CallbackQuery):
-    if que_ry.data == "sendreq":
-        await req.forward_messages(-1001716483713, que_ry.chat.id, que_ry.id)
-        await req.send_message(que_ry.chat.id, "✅ İsteğiniz yöneticiye gönderilmiştir. En kısa sürede eklenecektir. İyi günler...")
-        await que_ry.message.delete()
+async def sendreq(cli: Client, cbquery: CallbackQuery):
+    if cbquery.data == "sendreq":
+        await cli.forward_messages(-1001716483713, cbquery.message.chat.id, cbquery.message.id)
+        await cli.send_message(cbquery.message.chat.id, "✅ İsteğiniz yöneticiye gönderilmiştir. En kısa sürede eklenecektir. İyi günler...")
+        await cbquery.message.delete()
