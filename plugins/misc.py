@@ -214,7 +214,7 @@ async def imdb_callback(bot: Client, quer_y: CallbackQuery):
         await quer_y.message.edit(caption, reply_markup=InlineKeyboardMarkup(btn), disable_web_page_preview=False)
     await quer_y.answer()
         
-@Client.on_callback_query(filters.private)
+@Client.on_callback_query()
 async def sendreq(cli: Client, cbquery: CallbackQuery):
     if cbquery.data == "sendreq":
         await cli.forward_messages(-1001716483713, cbquery.from_user.id, cbquery.message.id)
