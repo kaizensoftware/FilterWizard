@@ -26,7 +26,7 @@ ADMINS = [int(admin) if id_pattern.search(admin) else admin for admin in environ
 CHANNELS = [int(ch) if id_pattern.search(ch) else ch for ch in environ.get('CHANNELS', '-1001564474673').split()] #Database Channels
 auth_users = [int(user) if id_pattern.search(user) else user for user in environ.get('AUTH_USERS', '1762747551 1690388459').split()]
 AUTH_USERS = (auth_users + ADMINS) if auth_users else []
-AUTH_CHANNEL = environ.get('AUTH_CHANNEL', '-1001715913423') #ForceSubcribe Channels
+AUTH_CHANNEL = environ.get('AUTH_CHANNEL', '') #ForceSubcribe Channels
 AUTH_GROUPS = [int(ch) for ch in environ.get('AUTH_GROUPS', '-1001869233986 -1001716483713').split()] #Allowed Chat IDs
 
 # MongoDB information
